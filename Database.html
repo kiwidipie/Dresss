@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penjualan Baju</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Daftar Produk</h1>
+    <div id="products"></div>
+
+    <script>
+        // Mendapatkan data produk dari backend
+        fetch('http://localhost:3000/products')
+            .then(response => response.json())
+            .then(data => {
+                const productsDiv = document.getElementById('products');
+                data.forEach(product => {
+                    const productElement = document.createElement('div');
+                    productElement.innerHTML = `
+                        <h2>${product.name}</h2>
+                        <p>Harga: Rp${product.price}</p>
+                        <p>Stok: ${product.stock}</p>
+                        <button onclick="addToCart(${product.id})">Beli</button>
+                    `;
+                    productsDiv.appendChild(productElement);
+                });
+            });
+
+        // Fungsi untuk menambahkan produk ke keranjang
+        function addToCart(productId) {
+            const data = {
+                user_id: 1, // ID user contoh
+                product_id: productId,
+                quantity: 1,
+                total_price: 50000 // Contoh total harga
+            };
+
+            fetch('http://localhost:3000/add-transaction', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                alert(result.message);
+            })
+            .catch(error => {
+                console.error('Terjadi kesalahan:', error);
+            });
+        }
+    </script>
+</body>
+</html>

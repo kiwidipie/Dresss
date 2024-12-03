@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toko Baju Online</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Dress</h1>
+    <nav>
+      <a href="#products">Produk</a>
+      <a href="#cart">Keranjang</a>
+      <a href="#products">Kontak</a>
+    </nav>
+  </header>
+
+  <section id="products" class="product-list">
+    <h2>Produk Kami</h2>
+    <div class="product" data-id="1">
+      <img src="./Gambar/Dress.jpg" alt="Dress">
+      <h3>Dress Blue Sky</h3>
+      <p>Rp 100.000</p>
+      <button class="add-to-cart">Tambahkan ke Keranjang</button>
+    </div>
+    <div class="product" data-id="2">
+      <img src="./Gambar/Dress3.jpg" alt="Dress3">
+      <h3>Dress Pinky</h3>
+      <p>Rp 120.000</p>
+      <button class="add-to-cart">Tambahkan ke Keranjang</button>
+    </div>
+    <div class="product" data-id="3">
+      <img src="./Gambar/Dress2.jpg" alt="Dress3">
+      <h3>Dress Navy Blue</h3>
+      <p>Rp 150.000</p>
+      <button class="add-to-cart">Tambahkan ke Keranjang</button>
+    </div>
+  </section>
+
+  <section id="cart">
+    <h2>Keranjang Belanja</h2>
+    <ul id="cart-items">
+      <li>Keranjang kosong</li>
+      <a href="payment.html" class="checkout-btn">Lanjutkan ke Pembayaran</a>
+
+    </ul>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
